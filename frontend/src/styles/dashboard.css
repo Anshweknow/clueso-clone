@@ -1,0 +1,136 @@
+/* Container for the dashboard content */
+.dashboard-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-out;
+  color: var(--text-main);
+  /* Ensures no internal white background overrides */
+  background: transparent !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header section styling */
+.dashboard-header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -1px;
+  background: linear-gradient(to right, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-top: 10px;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Responsive Grid System 
+   This prevents cards from overlapping by wrapping them 
+   automatically based on screen width.
+*/
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+/* Stat Card Styling - Inherits glass-card from common.css */
+.stat-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Subtle inner glow for the cards */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 10px 0;
+  color: #ffffff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.stat-footer {
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-footer.positive {
+  color: #4ade80; /* Success Green */
+}
+
+.stat-footer.negative {
+  color: #f87171; /* Warning Red */
+}
+
+/* Placeholder for charts or analytics sections */
+.analytics-section {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.chart-placeholder {
+  height: 350px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.01);
+}
+.dashboard-loading {
+  color: white;
+  font-size: 18px;
+  padding: 40px;
+  opacity: 0.8;
+}

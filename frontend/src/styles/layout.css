@@ -1,0 +1,120 @@
+/* ===============================
+   APP SHELL (BACKGROUND LAYER)
+   ✅ FIX: removed position: fixed
+================================ */
+.app-shell.dynamic-bg {
+  position: relative; /* 🔑 CRITICAL FIX */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Background never scrolls */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===============================
+   NAVBAR (TOP)
+================================ */
+.navbar {
+  height: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1100;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===============================
+   MAIN LAYOUT (SIDEBAR + CONTENT)
+================================ */
+.main-layout {
+  display: flex;
+  flex: 1;
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+  position: relative;
+  overflow: hidden; /* Parent never scrolls */
+}
+
+/* ===============================
+   SIDEBAR
+================================ */
+.sidebar {
+  width: 260px;
+  height: calc(100vh - 64px);
+  position: fixed;
+  top: 64px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.sidebar-brand h2 {
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+/* ===============================
+   SIDEBAR NAV LINKS
+================================ */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.sidebar-nav .nav-link {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #c7d2fe;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.sidebar-nav .nav-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.sidebar-nav .nav-link.active {
+  background: rgba(99, 102, 241, 0.25);
+  color: #ffffff;
+}
+
+/* ===============================
+   CONTENT AREA (THE ONLY SCROLLER)
+================================ */
+.content-area {
+  margin-left: 260px;
+  flex: 1;
+
+  min-height: 0;          /* 🔑 REQUIRED FOR FLEX SCROLL */
+  overflow-y: auto;       /* ✅ REAL SCROLL */
+
+  padding: 40px;
+  padding-bottom: 80px;
+  background: transparent;
+}
+
+/* ===============================
+   FORM INTERACTION SAFETY
+================================ */
+.content-area input,
+.content-area textarea,
+.content-area select,
+.content-area button {
+  pointer-events: auto;
+}

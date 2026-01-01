@@ -1,0 +1,35 @@
+.feedback-container {
+  margin-left: 240px;
+  padding: 100px 40px;
+}
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feedback-item {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedback-content h4 {
+  margin: 0 0 8px 0;
+  color: var(--text-main);
+}
+
+.feedback-content p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.sentiment-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+}
